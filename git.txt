@@ -1,0 +1,180 @@
+.git\config:	url = https://github.com/Vivekjangir90/Batch_Script_Language.git
+.git\FETCH_HEAD:e1935ab810fda635b2136183c4b3c3180d3d1d45		branch 'main' of https://github.com/Vivekjangir90/Batch_Script_Language
+.git\hooks\applypatch-msg.sample:. git-sh-setup
+.git\hooks\applypatch-msg.sample:commitmsg="$(git rev-parse --git-path hooks/commit-msg)"
+.git\hooks\commit-msg.sample:# Called by "git commit" with one argument, the name of the file
+.git\hooks\commit-msg.sample:# SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+.git\hooks\fsmonitor-watchman.sample:# (https://facebook.github.io/watchman/) with git to speed up detecting
+.git\hooks\fsmonitor-watchman.sample:# 'git config core.fsmonitor .git/hooks/query-watchman'
+.git\hooks\fsmonitor-watchman.sample:my $git_work_tree = get_working_dir();
+.git\hooks\fsmonitor-watchman.sample:	# open (my $fh, ">", ".git/watchman-output.out");
+.git\hooks\fsmonitor-watchman.sample:	my $response = qx/watchman clock "$git_work_tree"/;
+.git\hooks\fsmonitor-watchman.sample:	die "Failed to get clock id on '$git_work_tree'.\n" .
+.git\hooks\fsmonitor-watchman.sample:	# changed since $last_update_token but not from the .git folder.
+.git\hooks\fsmonitor-watchman.sample:		["query", "$git_work_tree", {$last_update_line
+.git\hooks\fsmonitor-watchman.sample:			"expression": ["not", ["dirname", ".git"]]
+.git\hooks\fsmonitor-watchman.sample:	# open (my $fh, ">", ".git/watchman-query.json");
+.git\hooks\fsmonitor-watchman.sample:	# open ($fh, ">", ".git/watchman-response.json");
+.git\hooks\fsmonitor-watchman.sample:		my $response = qx/watchman watch "$git_work_tree"/;
+.git\hooks\fsmonitor-watchman.sample:		die "Failed to make watchman watch '$git_work_tree'.\n" .
+.git\hooks\fsmonitor-watchman.sample:		# open (my $fh, ">", ".git/watchman-output.out");
+.git\hooks\fsmonitor-watchman.sample:		# return the fast "everything is dirty" flag to git and do the
+.git\hooks\fsmonitor-watchman.sample:		# the cost in git to look up each individual file.
+.git\hooks\post-update.sample:exec git update-server-info
+.git\hooks\pre-applypatch.sample:. git-sh-setup
+.git\hooks\pre-applypatch.sample:precommit="$(git rev-parse --git-path hooks/pre-commit)"
+.git\hooks\pre-commit.sample:# Called by "git commit" with no arguments.  The hook should
+.git\hooks\pre-commit.sample:if git rev-parse --verify HEAD >/dev/null 2>&1
+.git\hooks\pre-commit.sample:	against=$(git hash-object -t tree /dev/null)
+.git\hooks\pre-commit.sample:allownonascii=$(git config --type=bool hooks.allownonascii)
+.git\hooks\pre-commit.sample:	test $(git diff --cached --name-only --diff-filter=A -z $against |
+.git\hooks\pre-commit.sample:  git config hooks.allownonascii true
+.git\hooks\pre-commit.sample:exec git diff-index --check --cached $against --
+.git\hooks\pre-merge-commit.sample:# Called by "git merge" with no arguments.  The hook should
+.git\hooks\pre-merge-commit.sample:. git-sh-setup
+.git\hooks\pre-merge-commit.sample:test -x "$GIT_DIR/hooks/pre-commit" &&
+.git\hooks\pre-merge-commit.sample:        exec "$GIT_DIR/hooks/pre-commit"
+.git\hooks\pre-push.sample:# An example hook script to verify what is about to be pushed.  Called by "git
+.git\hooks\pre-push.sample:zero=$(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
+.git\hooks\pre-push.sample:		commit=$(git rev-list -n 1 --grep '^WIP' "$range")
+.git\hooks\pre-rebase.sample:# The "pre-rebase" hook is run just before "git rebase" starts doing
+.git\hooks\pre-rebase.sample:	topic=`git symbolic-ref HEAD` ||
+.git\hooks\pre-rebase.sample:not_in_master=`git rev-list --pretty=oneline ^master "$topic"`
+.git\hooks\pre-rebase.sample:only_next_1=`git rev-list ^master "^$topic" ${publish} | sort`
+.git\hooks\pre-rebase.sample:only_next_2=`git rev-list ^master           ${publish} | sort`
+.git\hooks\pre-rebase.sample:	not_in_topic=`git rev-list "^$topic" master`
+.git\hooks\pre-rebase.sample:	not_in_next=`git rev-list --pretty=oneline ^${publish} "$topic"`
+.git\hooks\pre-rebase.sample:$GIT_DIR/config mechanism.
+.git\hooks\pre-rebase.sample:	git rev-list ^master ^topic next
+.git\hooks\pre-rebase.sample:	git rev-list ^master        next
+.git\hooks\pre-rebase.sample:	git rev-list master..topic
+.git\hooks\pre-receive.sample:if test -n "$GIT_PUSH_OPTION_COUNT"
+.git\hooks\pre-receive.sample:	while test "$i" -lt "$GIT_PUSH_OPTION_COUNT"
+.git\hooks\pre-receive.sample:		eval "value=\$GIT_PUSH_OPTION_$i"
+.git\hooks\prepare-commit-msg.sample:# Called by "git commit" with the name of the file that has the
+.git\hooks\prepare-commit-msg.sample:# The second includes the output of "git diff --name-status -r"
+.git\hooks\prepare-commit-msg.sample:# into the message, just before the "git status" output.  It is
+.git\hooks\prepare-commit-msg.sample:#       print "\n" . `git diff --cached --name-status -r`
+.git\hooks\prepare-commit-msg.sample:# SOB=$(git var GIT_COMMITTER_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+.git\hooks\prepare-commit-msg.sample:# git interpret-trailers --in-place --trailer "$SOB" "$COMMIT_MSG_FILE"
+.git\hooks\push-to-checkout.sample:# An example hook script to update a checked-out tree on a git push.
+.git\hooks\push-to-checkout.sample:# This hook is invoked by git-receive-pack(1) when it reacts to git
+.git\hooks\push-to-checkout.sample:# For example, the hook can simply run git read-tree -u -m HEAD "$1"
+.git\hooks\push-to-checkout.sample:# in order to emulate git fetch that is run in the reverse direction
+.git\hooks\push-to-checkout.sample:# with git push, as the two-tree form of git read-tree -u -m is
+.git\hooks\push-to-checkout.sample:# essentially the same as git switch or git checkout that switches
+.git\hooks\push-to-checkout.sample:# for the default behaviour for git's push-to-checkout hook defined in
+.git\hooks\push-to-checkout.sample:if ! git update-index -q --ignore-submodules --refresh
+.git\hooks\push-to-checkout.sample:if ! git diff-files --quiet --ignore-submodules --
+.git\hooks\push-to-checkout.sample:if git cat-file -e HEAD 2>/dev/null
+.git\hooks\push-to-checkout.sample:	head=$(git hash-object -t tree --stdin </dev/null)
+.git\hooks\push-to-checkout.sample:if ! git diff-index --quiet --cached --ignore-submodules $head --
+.git\hooks\push-to-checkout.sample:if ! git read-tree -u -m "$commit"
+.git\hooks\update.sample:# Called by "git receive-pack" with arguments: refname sha1-old sha1-new
+.git\hooks\update.sample:if [ -z "$GIT_DIR" ]; then
+.git\hooks\update.sample:	echo " (if you want, you could supply GIT_DIR then run" >&2
+.git\hooks\update.sample:allowunannotated=$(git config --type=bool hooks.allowunannotated)
+.git\hooks\update.sample:allowdeletebranch=$(git config --type=bool hooks.allowdeletebranch)
+.git\hooks\update.sample:denycreatebranch=$(git config --type=bool hooks.denycreatebranch)
+.git\hooks\update.sample:allowdeletetag=$(git config --type=bool hooks.allowdeletetag)
+.git\hooks\update.sample:allowmodifytag=$(git config --type=bool hooks.allowmodifytag)
+.git\hooks\update.sample:projectdesc=$(sed -e '1q' "$GIT_DIR/description")
+.git\hooks\update.sample:zero=$(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
+.git\hooks\update.sample:	newrev_type=$(git cat-file -t $newrev)
+.git\hooks\update.sample:			echo "*** Use 'git tag [ -a | -s ]' for tags you want to propagate." >&2
+.git\hooks\update.sample:		if [ "$allowmodifytag" != "true" ] && git rev-parse $refname > /dev/null 2>&1
+.git\index:DIRC      eñ÷Ñ@0¨eñ÷Ñ@0¨          Å§           Bﬂ‡w$≤°üØPzPø¬;ËıN{ .gitattributes    eñ÷Ñ∆/‹eñ÷Ñ@0¨          Å§           ~I·xyù+
+.git\info\exclude:# git ls-files --others --exclude-from=.git/info/exclude
+.git\logs\HEAD:0000000000000000000000000000000000000000 e1935ab810fda635b2136183c4b3c3180d3d1d45 Vivekjangir90 <113574190+Vivekjangir90@users.noreply.github.com> 1704384134 +0530	commit (initial): Initial commit
+.git\logs\refs\heads\main:0000000000000000000000000000000000000000 e1935ab810fda635b2136183c4b3c3180d3d1d45 Vivekjangir90 <113574190+Vivekjangir90@users.noreply.github.com> 1704384134 +0530	commit (initial): Initial commit
+.git\logs\refs\remotes\origin\main:0000000000000000000000000000000000000000 e1935ab810fda635b2136183c4b3c3180d3d1d45 Vivekjangir90 <113574190+Vivekjangir90@users.noreply.github.com> 1704384363 +0530	update by push
+git.txt:.git\config:	url = https://github.com/Vivekjangir90/Batch_Script_Language.git
+git.txt:.git\FETCH_HEAD:e1935ab810fda635b2136183c4b3c3180d3d1d45		branch 'main' of https://github.com/Vivekjangir90/Batch_Script_Language
+git.txt:.git\hooks\applypatch-msg.sample:. git-sh-setup
+git.txt:.git\hooks\applypatch-msg.sample:commitmsg="$(git rev-parse --git-path hooks/commit-msg)"
+git.txt:.git\hooks\commit-msg.sample:# Called by "git commit" with one argument, the name of the file
+git.txt:.git\hooks\commit-msg.sample:# SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+git.txt:.git\hooks\fsmonitor-watchman.sample:# (https://facebook.github.io/watchman/) with git to speed up detecting
+git.txt:.git\hooks\fsmonitor-watchman.sample:# 'git config core.fsmonitor .git/hooks/query-watchman'
+git.txt:.git\hooks\fsmonitor-watchman.sample:my $git_work_tree = get_working_dir();
+git.txt:.git\hooks\fsmonitor-watchman.sample:	# open (my $fh, ">", ".git/watchman-output.out");
+git.txt:.git\hooks\fsmonitor-watchman.sample:	my $response = qx/watchman clock "$git_work_tree"/;
+git.txt:.git\hooks\fsmonitor-watchman.sample:	die "Failed to get clock id on '$git_work_tree'.\n" .
+git.txt:.git\hooks\fsmonitor-watchman.sample:	# changed since $last_update_token but not from the .git folder.
+git.txt:.git\hooks\fsmonitor-watchman.sample:		["query", "$git_work_tree", {$last_update_line
+git.txt:.git\hooks\fsmonitor-watchman.sample:			"expression": ["not", ["dirname", ".git"]]
+git.txt:.git\hooks\fsmonitor-watchman.sample:	# open (my $fh, ">", ".git/watchman-query.json");
+git.txt:.git\hooks\fsmonitor-watchman.sample:	# open ($fh, ">", ".git/watchman-response.json");
+git.txt:.git\hooks\fsmonitor-watchman.sample:		my $response = qx/watchman watch "$git_work_tree"/;
+git.txt:.git\hooks\fsmonitor-watchman.sample:		die "Failed to make watchman watch '$git_work_tree'.\n" .
+git.txt:.git\hooks\fsmonitor-watchman.sample:		# open (my $fh, ">", ".git/watchman-output.out");
+git.txt:.git\hooks\fsmonitor-watchman.sample:		# return the fast "everything is dirty" flag to git and do the
+git.txt:.git\hooks\fsmonitor-watchman.sample:		# the cost in git to look up each individual file.
+git.txt:.git\hooks\post-update.sample:exec git update-server-info
+git.txt:.git\hooks\pre-applypatch.sample:. git-sh-setup
+git.txt:.git\hooks\pre-applypatch.sample:precommit="$(git rev-parse --git-path hooks/pre-commit)"
+git.txt:.git\hooks\pre-commit.sample:# Called by "git commit" with no arguments.  The hook should
+git.txt:.git\hooks\pre-commit.sample:if git rev-parse --verify HEAD >/dev/null 2>&1
+git.txt:.git\hooks\pre-commit.sample:	against=$(git hash-object -t tree /dev/null)
+git.txt:.git\hooks\pre-commit.sample:allownonascii=$(git config --type=bool hooks.allownonascii)
+git.txt:.git\hooks\pre-commit.sample:	test $(git diff --cached --name-only --diff-filter=A -z $against |
+git.txt:.git\hooks\pre-commit.sample:  git config hooks.allownonascii true
+git.txt:.git\hooks\pre-commit.sample:exec git diff-index --check --cached $against --
+git.txt:.git\hooks\pre-merge-commit.sample:# Called by "git merge" with no arguments.  The hook should
+git.txt:.git\hooks\pre-merge-commit.sample:. git-sh-setup
+git.txt:.git\hooks\pre-merge-commit.sample:test -x "$GIT_DIR/hooks/pre-commit" &&
+git.txt:.git\hooks\pre-merge-commit.sample:        exec "$GIT_DIR/hooks/pre-commit"
+git.txt:.git\hooks\pre-push.sample:# An example hook script to verify what is about to be pushed.  Called by "git
+git.txt:.git\hooks\pre-push.sample:zero=$(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
+git.txt:.git\hooks\pre-push.sample:		commit=$(git rev-list -n 1 --grep '^WIP' "$range")
+git.txt:.git\hooks\pre-rebase.sample:# The "pre-rebase" hook is run just before "git rebase" starts doing
+git.txt:.git\hooks\pre-rebase.sample:	topic=`git symbolic-ref HEAD` ||
+git.txt:.git\hooks\pre-rebase.sample:not_in_master=`git rev-list --pretty=oneline ^master "$topic"`
+git.txt:.git\hooks\pre-rebase.sample:only_next_1=`git rev-list ^master "^$topic" ${publish} | sort`
+git.txt:.git\hooks\pre-rebase.sample:only_next_2=`git rev-list ^master           ${publish} | sort`
+git.txt:.git\hooks\pre-rebase.sample:	not_in_topic=`git rev-list "^$topic" master`
+git.txt:.git\hooks\pre-rebase.sample:	not_in_next=`git rev-list --pretty=oneline ^${publish} "$topic"`
+git.txt:.git\hooks\pre-rebase.sample:$GIT_DIR/config mechanism.
+git.txt:.git\hooks\pre-rebase.sample:	git rev-list ^master ^topic next
+git.txt:.git\hooks\pre-rebase.sample:	git rev-list ^master        next
+git.txt:.git\hooks\pre-rebase.sample:	git rev-list master..topic
+git.txt:.git\hooks\pre-receive.sample:if test -n "$GIT_PUSH_OPTION_COUNT"
+git.txt:.git\hooks\pre-receive.sample:	while test "$i" -lt "$GIT_PUSH_OPTION_COUNT"
+git.txt:.git\hooks\pre-receive.sample:		eval "value=\$GIT_PUSH_OPTION_$i"
+git.txt:.git\hooks\prepare-commit-msg.sample:# Called by "git commit" with the name of the file that has the
+git.txt:.git\hooks\prepare-commit-msg.sample:# The second includes the output of "git diff --name-status -r"
+git.txt:.git\hooks\prepare-commit-msg.sample:# into the message, just before the "git status" output.  It is
+git.txt:.git\hooks\prepare-commit-msg.sample:#       print "\n" . `git diff --cached --name-status -r`
+git.txt:.git\hooks\prepare-commit-msg.sample:# SOB=$(git var GIT_COMMITTER_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+git.txt:.git\hooks\prepare-commit-msg.sample:# git interpret-trailers --in-place --trailer "$SOB" "$COMMIT_MSG_FILE"
+git.txt:.git\hooks\push-to-checkout.sample:# An example hook script to update a checked-out tree on a git push.
+git.txt:.git\hooks\push-to-checkout.sample:# This hook is invoked by git-receive-pack(1) when it reacts to git
+git.txt:.git\hooks\push-to-checkout.sample:# For example, the hook can simply run git read-tree -u -m HEAD "$1"
+git.txt:.git\hooks\push-to-checkout.sample:# in order to emulate git fetch that is run in the reverse direction
+git.txt:.git\hooks\push-to-checkout.sample:# with git push, as the two-tree form of git read-tree -u -m is
+git.txt:.git\hooks\push-to-checkout.sample:# essentially the same as git switch or git checkout that switches
+git.txt:.git\hooks\push-to-checkout.sample:# for the default behaviour for git's push-to-checkout hook defined in
+git.txt:.git\hooks\push-to-checkout.sample:if ! git update-index -q --ignore-submodules --refresh
+git.txt:.git\hooks\push-to-checkout.sample:if ! git diff-files --quiet --ignore-submodules --
+git.txt:.git\hooks\push-to-checkout.sample:if git cat-file -e HEAD 2>/dev/null
+git.txt:.git\hooks\push-to-checkout.sample:	head=$(git hash-object -t tree --stdin </dev/null)
+git.txt:.git\hooks\push-to-checkout.sample:if ! git diff-index --quiet --cached --ignore-submodules $head --
+git.txt:.git\hooks\push-to-checkout.sample:if ! git read-tree -u -m "$commit"
+git.txt:.git\hooks\update.sample:# Called by "git receive-pack" with arguments: refname sha1-old sha1-new
+git.txt:.git\hooks\update.sample:if [ -z "$GIT_DIR" ]; then
+git.txt:.git\hooks\update.sample:	echo " (if you want, you could supply GIT_DIR then run" >&2
+git.txt:.git\hooks\update.sample:allowunannotated=$(git config --type=bool hooks.allowunannotated)
+git.txt:.git\hooks\update.sample:allowdeletebranch=$(git config --type=bool hooks.allowdeletebranch)
+git.txt:.git\hooks\update.sample:denycreatebranch=$(git config --type=bool hooks.denycreatebranch)
+git.txt:.git\hooks\update.sample:allowdeletetag=$(git config --type=bool hooks.allowdeletetag)
+git.txt:.git\hooks\update.sample:allowmodifytag=$(git config --type=bool hooks.allowmodifytag)
+git.txt:.git\hooks\update.sample:projectdesc=$(sed -e '1q' "$GIT_DIR/description")
+git.txt:.git\hooks\update.sample:zero=$(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
+git.txt:.git\hooks\update.sample:	newrev_type=$(git cat-file -t $newrev)
+git.txt:.git\hooks\update.sample:			echo "*** Use 'git tag [ -a | -s ]' for tags you want to propagate." >&2
+git.txt:.git\hooks\update.sample :		if [ "$allowmodifytag" != "true" ] && git rev-parse $refname > /dev/null 2>&1
+git.txt:.git\index:DIRC      eñ÷Ñ@0¨eñ÷Ñ@0¨          Å§           Bﬂ‡w$≤°üØPzPø¬;ËıN{ .gitattributes    eñ÷Ñ∆/‹eñ÷Ñ@0¨          Å§           ~I·xyù+
+git.txt:.git\info\exclude:# git ls-files --others --exclude-from=.git/info/exclude
+git.txt:.git\logs\HEAD:0000000000000000000000000000000000000000 e1935ab810fda635b2136183c4b3c3180d3d1d45 Vivekjangir90 <113574190+Vivekjangir90@users.noreply.github.com> 1704384134 +0530	commit (initial): Initial commit
+git.txt:.git\logs\refs\heads\main:0000000000000000000000000000000000000000 e1935ab810fda635b2136183c4b3c3180d3d1d45 Vivekjangir90 <113574190+Vivekjangir90@users.noreply.github.com> 1704384134 +0530	commit (initial): Initial commit
+git.txt:.git\logs\refs\remotes\origin\main:0000000000000000000000000000000000000000 e1935ab810fda635b2136183c4b3c3180d3d1d45 Vivekjangir90 <113574190+Vivekjangir
